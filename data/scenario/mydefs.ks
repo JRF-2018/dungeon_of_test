@@ -26,12 +26,17 @@ f.bgm10 = "maou_game_theme01.mp3"    //(落下→脱出)
 ;[deffont face="game_mincho"]
 [resetfont]
 
+;いちおうゲームの自動翻訳への準備をしておく
+[macro name="add_lang_img"]
+[endmacro]
+
 [macro name="scenestart"]
 ;@layopt layer=message0 visible=false
 
 [bg  time="1000"  method="crossfade" storage=%bg  ]
 
 [button graphic="button/button_item1.png" enterimg="button/button_item2.png" storage="tst_meikyu_jp.ks" target=*tst_items  x="30" y="30" role="sleepgame" name="item_button"]
+[add_lang_img filename="button/button_item1.png" text="アイテム"]
 
 [if exp="f.k0 == 1"]
 [eval exp="f.disable_title_btn = false"]
