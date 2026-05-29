@@ -1,0 +1,157 @@
+<div id="menu_menu_wrapper">
+    <div class="display_menu block_menu">
+        <!-- 閉じるボタン -->
+        <div class="menu_item" style="float: right; margin: 20px 10px 0 0">
+            <img class="menu_close" src="./tyrano/images/system/menu_button_close.png" />
+        </div>
+        <div style="clear: both"></div>
+
+        <!-- メニュー -->
+        <div style="margin-top: 50px">
+            <div class="menu_item menu_save_outer">
+                <img class="menu_save" src="./tyrano/images/system/menu_button_save.png" />
+            </div>
+
+            <div class="menu_item menu_load_outer">
+                <img class="menu_load" src="./tyrano/images/system/menu_button_load.png" />
+            </div>
+
+            <div class="menu_item menu_window_close_outer">
+                <img class="menu_window_close" src="./tyrano/images/system/menu_message_close.png" />
+            </div>
+
+            <div class="menu_item menu_skip_outer">
+                <img class="menu_skip" src="./tyrano/images/system/menu_button_skip.png" />
+            </div>
+<div id="menu_title_btn" class="menu_item menu_custom_title_outer">
+    <img class="menu_custom_title" src="./tyrano/images/system/menu_button_title.png" />
+</div>
+
+<script>
+  (function() {
+    // 1. 変数を取得（型が「文字列」や「数値」に化けても対応できるようにする）
+    var disableTitle = tyrano.plugin.kag.stat.f.disable_title_btn;
+    
+    // 真偽値の true、文字列の "true"、数値の 1 のどれであっても確実に true と判定する
+    var isDisable = (disableTitle === true || disableTitle === "true" || disableTitle == 1);
+    
+    var titleBtn = document.getElementById('menu_title_btn');
+
+    // 2. 見た目とCSSによるクリック制御
+    if (titleBtn) {
+        if (isDisable) {
+            titleBtn.style.opacity = "0.3";
+            titleBtn.style.pointerEvents = "none";
+        } else {
+            titleBtn.style.opacity = "1";
+            titleBtn.style.pointerEvents = "auto";
+            titleBtn.style.display = "block";
+        }
+    }
+
+    // 3. クリックイベント（二重の安全ネットを配置）
+    $("#menu_title_btn").off("click").on("click", function() {
+        // 【重要】万が一 pointer-events が貫通してクリックされても、JS側で即座に処理を拒否する
+        if (isDisable) return false;
+
+        $(".menu_close").click();
+        
+        setTimeout(function() {
+            TYRANO.kag.ftag.startTag("jump", { storage: "title.ks", target: "*title_start" });
+        }, 200);
+    });
+  })();
+</script>
+
+<!--
+<script>
+  (function() {
+    var disableTitle = tyrano.plugin.kag.stat.f.disable_title_btn || false;
+    var titleBtn = document.getElementById('menu_title_btn');
+
+    if (titleBtn) {
+        if (disableTitle === true) {
+            titleBtn.style.opacity = "0.3";
+            titleBtn.style.pointerEvents = "none";
+        } else {
+            titleBtn.style.opacity = "1";
+            titleBtn.style.pointerEvents = "auto";
+            titleBtn.style.display = "block";
+        }
+    }
+
+    // 【新しく追加】クリック時の挙動をJavaScriptで直接制御します
+    $("#menu_title_btn").off("click").on("click", function() {
+        // 1. まずメニュー画面を安全に閉じる（閉じるボタンのクリックをシミュレート）
+        $(".menu_close").click();
+        
+        // 2. メニューが閉じるアニメーションをわずかに待ってから、title.ks へフラグを保持したままジャンプ
+        setTimeout(function() {
+            TYRANO.kag.ftag.startTag("jump", { storage: "title.ks", target: "*title_start" });
+        }, 200);
+    });
+  })();
+</script>
+-->
+
+<!--
+<div id="menu_title_btn" class="menu_item menu_back_title_outer">
+    <img class="menu_back_title" src="./tyrano/images/system/menu_button_title.png" />
+</div>
+
+<script>
+  (function() {
+    // ティラノのゲーム変数を読み込む
+    var disableTitle = tyrano.plugin.kag.stat.f.disable_title_btn;
+    
+    // 上で見つけた「menu_title_btn」という目印の要素を取得
+    var titleBtn = document.getElementById('menu_title_btn');
+
+    if (titleBtn) {
+        if (disableTitle === true) {
+            // オフ（無効）の時：半透明にしてクリックを完全に無効化する
+            titleBtn.style.opacity = "0.3";
+            titleBtn.style.pointerEvents = "none";
+            
+            // もし「存在自体を完全に消し去りたい」場合は、上の2行の代わりに以下を有効にしてください
+            // titleBtn.style.display = "none";
+        } else {
+            // オン（通常時）：元の状態（不透明・クリック可能）に戻す
+            titleBtn.style.opacity = "1";
+            titleBtn.style.pointerEvents = "auto";
+            titleBtn.style.display = "block";
+        }
+    }
+  })();
+</script>
+-->
+
+<!--
+            <div class="menu_item menu_back_title_outer">
+                <img class="menu_back_title" src="./tyrano/images/system/menu_button_title.png" />
+            </div>
+-->
+        </div>
+    </div>
+
+    <!-- 背景とタイトル画像 -->
+    <img class="img_label img_label_menu block_menu" src="./tyrano/images/system/label_menu.png" />
+    <img class="img_bg_base" src="./tyrano/images/system/bg_base.png" />
+
+    <!-- ボタンホバー時に画像を変更する -->
+    <script>
+        $("#menu_menu_wrapper .menu_item img").each((i, elm) => {
+            const j_elm = $(elm);
+            const original_src = j_elm.attr("src");
+            const hover_src = original_src.replace(".png", "2.png");
+            j_elm.hover(
+                () => {
+                    j_elm.attr("src", hover_src);
+                },
+                () => {
+                    j_elm.attr("src", original_src);
+                },
+            );
+        });
+    </script>
+</div>
