@@ -1,6 +1,6 @@
 # テストの迷宮
 
-<!-- Time-stamp: "2026-05-29T12:04:22Z" -->
+<!-- Time-stamp: "2026-05-29T12:06:08Z" -->
 
 [易双六PTC](https://github.com/JRF-2018/youscout_ptc)のおまけで作った「テスト ノ メイキュウ」を ChatGPT さんに絵を描いてもらい Gemini さん と Claude さんに教えてもらいながら TyranoScript を使って、グラフィカルなアドヴェンチャーゲームにしました。
 
@@ -8,7 +8,7 @@
 
 https://jrf-2018.github.io/dungeon_of_test/
 
-易双六PTCは最近、Web 版も作りました(→[易双六PTC Web版](https://github.com/JRF-2018/youscout_ptc_web)。そちらのオリジナルの「テスト ノ メイキュウ」は、↓から…、
+易双六PTCは最近、Web 版も作りました(→[易双六PTC Web版](https://github.com/JRF-2018/youscout_ptc_web))。そちらのオリジナルの「テスト ノ メイキュウ」は、↓から…、
 
 https://jrf-2018.github.io/youscout_ptc_web/yschelp.html?lang=ja
 
