@@ -293,7 +293,7 @@
 北へ道が伸びている。前方に人がいる。[l][r]
 
 [set_myglink num="1"]
-[myglink target=*tst_roadb text="先へ進む"]
+[myglink target=*tst_roadb text="先へ進む。"]
 [myglink target=*tst_road9 text="後ろに戻る。"]
 [myprev target=*tst_road9]
 [mynext target=*tst_roadb]
