@@ -46,9 +46,9 @@
 [scenestart bg="A09.png"]
 
 あなたは「テストの迷宮」に迷い込んだ。[r]
-隠者があなたに語りかける。：[r]
+[ruby text="いん"]隠[ruby text="じゃ"]者があなたに語りかける。：[r]
 「[if exp="f.r1 == 1"]
-戻って来んでよい。
+[ruby text="もど"]戻って来んでよい。
 [eval exp="f.r1 = 0"]
 [endif]
 次へ進みなさい。」[l][r]
@@ -107,7 +107,7 @@
 [safe_playbgm storage=&f.bgm21 loop=true target="smart"]
 [scenestart bg="road.png"]
 
-北へ道が伸びている。左側に部屋がある。[l][r]
+北へ道が[ruby text="の"]伸びている。左側に部屋がある。[l][r]
 
 [set_myglink num="1"]
 [myglink target=*tst_room1 text="部屋へ入る。"]
@@ -191,7 +191,7 @@
   [scenestart bg="A06.png"]
 [endif]
 
-鍵のかかった扉が道を塞いでいる。[r]
+[ruby text="かぎ"]鍵のかかった扉が道を[ruby text="ふさ"]塞いでいる。[r]
 [if exp="f.k3 == 1"]
 あなたは鍵を持っている。[l][r]
 [else]
@@ -377,7 +377,7 @@
   [if exp="f._trap_r < 0.25"]
     [jump target=*tst_room1t]
   [elsif exp="f._trap_r < 0.50"]
-罠があったが、引っかからなかった。
+[ruby text="わな"]罠があったが、引っかからなかった。
   [endif]
 [endif]
 [l][r]
@@ -442,7 +442,7 @@
 ; JRFTRT_A (108,56)-(143,111): カードA11b相当
 [scenestart bg="A11.png"]
 
-罠だ！どこか別の場所に飛ばされたようだ。[l][r]
+[ruby text="わな"]罠だ！どこか別の場所に飛ばされたようだ。[l][r]
 [mynext target=*tst_road8]
 [s]
 
@@ -456,7 +456,7 @@
 ; JRFTRT_A (36,56)-(71,111): カードA01b相当
 [scenestart bg="A05.png"]
 
-部屋にはいくつか家具がある。[l][r]
+部屋にはいくつか家具がある。[ruby text="い"]椅[ruby text="す"]子・[ruby text="つくえ"]机・[ruby text="たな"]棚がある。[l][r]
 [set_myglink num="0"]
 [myglink target=*tst_room3a text="椅子を調べる。"]
 ; 机の調査: K3あり→3A（空振り）, R3フラグあり→3C（マスターキー）, それ以外→3B（フラグ立て）
@@ -581,7 +581,7 @@
 「あなたがこんなものを持つ意味はない。」[r]
 [endif]
 [if exp="f.k0 == 1"]
-地図以外の[endif]持ち物をすべて奪われてしまった！[l][r]
+地図以外の[endif]持ち物をすべて[ruby text="うば"]奪われてしまった！[l][r]
 [myglink target=*tst_road8 text="部屋を出る。" num="1"]
 [myprev target=*tst_road8]
 [s]
@@ -649,7 +649,7 @@
 [safe_playbgm storage=&f.bgm2 loop=true target="smart"]
 [scenestart bg="attack.png"]
 
-「おのれ、これは父を殺したのはわたしという印。父の仇め！」[r]
+「おのれ、これは父を殺したのはわたしという印。父の[ruby text="かたき"]仇め！」[r]
 [playse storage="maou_se_battle03.mp3" volume="100"]
 [layermode color="0xff0000" mode="multiply" time="100"]
 [wait time="1000"]
@@ -692,7 +692,7 @@ f.r3  = 0
 ; JRFTRT_A (216,0)-(251,55): カードA07a相当
 [scenestart bg="A20.png"]
 
-突然、あなたは足を滑らせた。[r]
+突然、あなたは足を[ruby text="すべ"]滑らせた。[r]
 あなたは深い穴を落ちていく……[l][r]
 [mynext target=*tst_congl]
 [s]
