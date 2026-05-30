@@ -47,11 +47,12 @@
 
 あなたは「テストの迷宮」に迷い込んだ。[r]
 [ruby text="いん"]隠[ruby text="じゃ"]者があなたに語りかける。：[r]
-「[if exp="f.r1 == 1"]
-[ruby text="もど"]戻って来んでよい。
+[if exp="f.r1 == 1"]
+「[ruby text="もど"]戻って来んでよい。次へ進みなさい。」[l][r]
 [eval exp="f.r1 = 0"]
+[else]
+「次へ進みなさい。」[l][r]
 [endif]
-次へ進みなさい。」[l][r]
 
 [mynext target=*tst_road1]
 [s]
